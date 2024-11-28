@@ -32,8 +32,10 @@ def generate_launch_description():
     tf = launch_ros.actions.Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        arguments=['0','0','0','0','0','0','1','base_link','velodyne']
+        arguments=['0.32','0','0.76','0','0','0','1','base_link','velodyne']
         )
+    # [x, y, z, qx, qy, qz, qw, frame_id, child_frame_id] frame_id 相對於 child_frame_id 的平移量
+    # ex:[1 0 0 0 0 0 1 base_link velodyne] x=1，base_link 在 velodyne 的 x 軸方向上移動 1 m
 
 
     graphbasedslam = launch_ros.actions.Node(
@@ -56,7 +58,7 @@ def generate_launch_description():
             default_value=main_param_dir,
             description='Full path to main parameter file to load'),
         mapping,
-        tf,
+        # tf,
         graphbasedslam,
         rviz,
             ])

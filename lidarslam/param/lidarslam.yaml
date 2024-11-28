@@ -3,12 +3,12 @@ scan_matcher:
     global_frame_id: "map"
     robot_frame_id: "base_link"
     registration_method: "NDT"
-    ndt_resolution: 2.0
+    ndt_resolution: 1.5
     ndt_num_threads: 2
-    gicp_corr_dist_threshold: 5.0
-    trans_for_mapupdate: 1.5
-    vg_size_for_input: 0.5
-    vg_size_for_map: 0.1
+    gicp_corr_dist_threshold: 3.0
+    trans_for_mapupdate: 1.0
+    vg_size_for_input: 0.3
+    vg_size_for_map: 0.05
     use_min_max_filter: true
     scan_min_range: 1.0
     scan_max_range: 200.0
@@ -39,6 +39,6 @@ graph_based_slam:
       range_of_searching_loop_closure: 20.0
       search_submap_num: 2
       num_adjacent_pose_cnstraints: 5
-      use_save_map_in_loop: true
+      use_save_map_in_loop: false
       debug_flag: true
 
